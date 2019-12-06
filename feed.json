@@ -9,5 +9,19 @@
         "name": "Wenjing(Cali) Li"
     },
     "items": [
+        {
+            "id": "https://cali-li.github.io/Data-Visualization/what-to-know-more-about-me.html",
+            "url": "https://cali-li.github.io/Data-Visualization/what-to-know-more-about-me.html",
+            "title": "What to know more about me?",
+            "summary": "I am currently a MS Statistics candidate at University of Michigan. I like party and data. Hope you can find some interesting thing over my website and if you have any thought please lei me know. I will be glad to explore new tech. Do&hellip;",
+            "content_html": "<p>I am currently a MS Statistics candidate at University of Michigan. I like party and data.</p>\n<p>Hope you can find some interesting thing over my website and if you have any thought please lei me know.</p>\n<p>I will be glad to explore new tech. Do you want to join me?</p>\n<p> </p>",
+            "author": {
+                "name": "Wenjing(Cali) Li"
+            },
+            "tags": [
+            ],
+            "date_published": "2019-12-06T11:31:17-05:00",
+            "date_modified": "2019-12-06T11:31:17-05:00"
+        }
     ]
 }
