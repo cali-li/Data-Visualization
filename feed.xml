@@ -3,12 +3,36 @@
     <title>Visualization</title>
     <link href="https://cali-li.github.io/Data-Visualization/feed.xml" rel="self" />
     <link href="https://cali-li.github.io/Data-Visualization" />
-    <updated>2019-12-13T21:08:53-05:00</updated>
+    <updated>2020-01-21T18:30:28-05:00</updated>
     <author>
         <name>Wenjing(Cali) Li</name>
     </author>
     <id>https://cali-li.github.io/Data-Visualization</id>
 
+    <entry>
+        <title>Python Basic Tutorial</title>
+        <author>
+            <name>Wenjing(Cali) Li</name>
+        </author>
+        <link href="https://cali-li.github.io/Data-Visualization/python-basic-tutorial.html"/>
+        <id>https://cali-li.github.io/Data-Visualization/python-basic-tutorial.html</id>
+
+        <updated>2020-01-21T18:30:18-05:00</updated>
+            <summary>
+                <![CDATA[
+                    This post contains some basic syntax and usage in Python. Part One Methods in list. ''' Basic methods about list ''' list.append(x) #adds x to the end of the list list.extend(L) #concatenates list L to the end of the other list list.sort() #sorts the elements&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>This post contains some basic syntax and usage in Python.</p>
+<hr>
+<p class="msg msg--highlight   msg--info">Part One</p>
+<p>Methods in list.</p>
+<pre>'''<br>Basic methods about list<br>'''<br>list.append(x) #adds x to the end of the list<br>list.extend(L) #concatenates list L to the end of the other list<br>list.sort() #sorts the elements of the list<br>list.remove(x) #removes from the list the first element equal to x<br>list.pop() #removes the last element of the list and returns that element</pre>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Project</title>
         <author>
@@ -17,7 +41,7 @@
         <link href="https://cali-li.github.io/Data-Visualization/project.html"/>
         <id>https://cali-li.github.io/Data-Visualization/project.html</id>
 
-        <updated>2019-12-13T21:08:43-05:00</updated>
+        <updated>2020-01-21T16:17:36-05:00</updated>
             <summary>
                 <![CDATA[
                     Group Project Report, Stats 506, F19
@@ -2606,7 +2630,7 @@ $(document).ready(function ()  {
 // ]]></script>
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>// <![CDATA[
-  (function () {
+(function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
     script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
