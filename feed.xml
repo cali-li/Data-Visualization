@@ -3,12 +3,48 @@
     <title>Visualization</title>
     <link href="https://cali-li.github.io/Data-Visualization/feed.xml" rel="self" />
     <link href="https://cali-li.github.io/Data-Visualization" />
-    <updated>2020-01-21T18:30:28-05:00</updated>
+    <updated>2020-01-25T18:39:18-05:00</updated>
     <author>
         <name>Wenjing(Cali) Li</name>
     </author>
     <id>https://cali-li.github.io/Data-Visualization</id>
 
+    <entry>
+        <title>Recurrent Neural Network</title>
+        <author>
+            <name>Wenjing(Cali) Li</name>
+        </author>
+        <link href="https://cali-li.github.io/Data-Visualization/recurrent-neural-network.html"/>
+        <id>https://cali-li.github.io/Data-Visualization/recurrent-neural-network.html</id>
+
+        <updated>2020-01-25T18:39:08-05:00</updated>
+            <summary>
+                <![CDATA[
+                    IntroductionStandard network works well usually, however, it still have some problems. Though we can include as many hidden layers as we want in the standard neural network, the input and output can only be the same length. That is not quite useful in application, since&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2 id="mcetoc_1dvffeo7p0">Introduction</h2>
+<p>Standard network works well usually, however, it still have some problems.</p>
+<p>Though we can include as many hidden layers as we want in the standard neural network, the input and output can only be the same length. That is not quite useful in application, since you cannot translate "I like Natural Language Processing a lot!" to "我爱自然语言处理很多！", which sounds really wierd.</p>
+<p>The other problem is it doesn't share features learned across different positions of text. Like the sentence "Cali and Wenjing are good friends." If we got a sign that "Cali" is a name, we want the the network autometically considers "Wenjing" is another person's name.</p>
+<p>The basic idea of RNN is showed in the graph below.</p>
+<p>Input X is the vector of x_i, i = 1...N. y_i is effected not only by x_2, but also by y_1...y_(i-1). RNN is quite useful in machine translation, word prediction, sentiment classification and name entity recognition.</p>
+<h2 id="mcetoc_1dvfffpao1">Sentence Representation</h2>
+<h4 id="mcetoc_1dvfg89q92">Machine Translation</h4>
+<p>Ex:</p>
+<p>(English)Input: x = "I like Natural Language Processing a lot!"</p>
+<p>(Chinese)Output: y = "我非常喜欢自然语言处理！"</p>
+<p>The result above is from Google Translate(<a href="https://translate.google.com/">https://translate.google.com/</a>)</p>
+<p>Notation: For the jth word in the ith sentence in the input X: x_{(i)[j]}</p>
+<h4 id="mcetoc_1dvfg8kjg3">Word Representation</h4>
+<p>The basic idea is to define a dictionary(or sometimes people call this vocabulary) first. The dictionary contains all the words you might be interested in. Usually we can choose the public corpus like STS and SSTB.</p>
+<p>And then denote position of a word in the vacabulary(called One-Hot Encoding). One-Hot Encoding is basically a index function. If the word appears in the sentence, the corresponding place in the encoding vector is 1, otherwise is 0. Since the vacabulary is relatively large, usually above 50k, we need to use sparse matrix to represent it.</p>
+<p> </p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Python Basic Tutorial</title>
         <author>
@@ -17,7 +53,7 @@
         <link href="https://cali-li.github.io/Data-Visualization/python-basic-tutorial.html"/>
         <id>https://cali-li.github.io/Data-Visualization/python-basic-tutorial.html</id>
 
-        <updated>2020-01-21T18:30:18-05:00</updated>
+        <updated>2020-01-25T17:51:09-05:00</updated>
             <summary>
                 <![CDATA[
                     This post contains some basic syntax and usage in Python. Part One Methods in list. ''' Basic methods about list ''' list.append(x) #adds x to the end of the list list.extend(L) #concatenates list L to the end of the other list list.sort() #sorts the elements&hellip;
@@ -30,6 +66,7 @@
 <p class="msg msg--highlight   msg--info">Part One</p>
 <p>Methods in list.</p>
 <pre>'''<br>Basic methods about list<br>'''<br>list.append(x) #adds x to the end of the list<br>list.extend(L) #concatenates list L to the end of the other list<br>list.sort() #sorts the elements of the list<br>list.remove(x) #removes from the list the first element equal to x<br>list.pop() #removes the last element of the list and returns that element</pre>
+<p> </p>
             ]]>
         </content>
     </entry>

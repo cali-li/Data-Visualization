@@ -10,18 +10,32 @@
     },
     "items": [
         {
+            "id": "https://cali-li.github.io/Data-Visualization/recurrent-neural-network.html",
+            "url": "https://cali-li.github.io/Data-Visualization/recurrent-neural-network.html",
+            "title": "Recurrent Neural Network",
+            "summary": "IntroductionStandard network works well usually, however, it still have some problems. Though we can include as many hidden layers as we want in the standard neural network, the input and output can only be the same length. That is not quite useful in application, since&hellip;",
+            "content_html": "<h2 id=\"mcetoc_1dvffeo7p0\">Introduction</h2>\n<p>Standard network works well usually, however, it still have some problems.</p>\n<p>Though we can include as many hidden layers as we want in the standard neural network, the input and output can only be the same length. That is not quite useful in application, since you cannot translate \"I like Natural Language Processing a lot!\" to \"我爱自然语言处理很多！\", which sounds really wierd.</p>\n<p>The other problem is it doesn't share features learned across different positions of text. Like the sentence \"Cali and Wenjing are good friends.\" If we got a sign that \"Cali\" is a name, we want the the network autometically considers \"Wenjing\" is another person's name.</p>\n<p>The basic idea of RNN is showed in the graph below.</p>\n<p>Input X is the vector of x_i, i = 1...N. y_i is effected not only by x_2, but also by y_1...y_(i-1). RNN is quite useful in machine translation, word prediction, sentiment classification and name entity recognition.</p>\n<h2 id=\"mcetoc_1dvfffpao1\">Sentence Representation</h2>\n<h4 id=\"mcetoc_1dvfg89q92\">Machine Translation</h4>\n<p>Ex:</p>\n<p>(English)Input: x = \"I like Natural Language Processing a lot!\"</p>\n<p>(Chinese)Output: y = \"我非常喜欢自然语言处理！\"</p>\n<p>The result above is from Google Translate(<a href=\"https://translate.google.com/\">https://translate.google.com/</a>)</p>\n<p>Notation: For the jth word in the ith sentence in the input X: x_{(i)[j]}</p>\n<h4 id=\"mcetoc_1dvfg8kjg3\">Word Representation</h4>\n<p>The basic idea is to define a dictionary(or sometimes people call this vocabulary) first. The dictionary contains all the words you might be interested in. Usually we can choose the public corpus like STS and SSTB.</p>\n<p>And then denote position of a word in the vacabulary(called One-Hot Encoding). One-Hot Encoding is basically a index function. If the word appears in the sentence, the corresponding place in the encoding vector is 1, otherwise is 0. Since the vacabulary is relatively large, usually above 50k, we need to use sparse matrix to represent it.</p>\n<p> </p>",
+            "author": {
+                "name": "Wenjing(Cali) Li"
+            },
+            "tags": [
+            ],
+            "date_published": "2020-01-25T18:39:08-05:00",
+            "date_modified": "2020-01-25T18:39:08-05:00"
+        },
+        {
             "id": "https://cali-li.github.io/Data-Visualization/python-basic-tutorial.html",
             "url": "https://cali-li.github.io/Data-Visualization/python-basic-tutorial.html",
             "title": "Python Basic Tutorial",
             "summary": "This post contains some basic syntax and usage in Python. Part One Methods in list. ''' Basic methods about list ''' list.append(x) #adds x to the end of the list list.extend(L) #concatenates list L to the end of the other list list.sort() #sorts the elements&hellip;",
-            "content_html": "<p>This post contains some basic syntax and usage in Python.</p>\n<hr>\n<p class=\"msg msg--highlight   msg--info\">Part One</p>\n<p>Methods in list.</p>\n<pre>'''<br>Basic methods about list<br>'''<br>list.append(x) #adds x to the end of the list<br>list.extend(L) #concatenates list L to the end of the other list<br>list.sort() #sorts the elements of the list<br>list.remove(x) #removes from the list the first element equal to x<br>list.pop() #removes the last element of the list and returns that element</pre>",
+            "content_html": "<p>This post contains some basic syntax and usage in Python.</p>\n<hr>\n<p class=\"msg msg--highlight   msg--info\">Part One</p>\n<p>Methods in list.</p>\n<pre>'''<br>Basic methods about list<br>'''<br>list.append(x) #adds x to the end of the list<br>list.extend(L) #concatenates list L to the end of the other list<br>list.sort() #sorts the elements of the list<br>list.remove(x) #removes from the list the first element equal to x<br>list.pop() #removes the last element of the list and returns that element</pre>\n<p> </p>",
             "author": {
                 "name": "Wenjing(Cali) Li"
             },
             "tags": [
             ],
             "date_published": "2020-01-21T18:30:18-05:00",
-            "date_modified": "2020-01-21T18:30:18-05:00"
+            "date_modified": "2020-01-25T17:51:09-05:00"
         },
         {
             "id": "https://cali-li.github.io/Data-Visualization/project.html",
