@@ -3,7 +3,7 @@
     <title>Visualization</title>
     <link href="https://cali-li.github.io/Data-Visualization/feed.xml" rel="self" />
     <link href="https://cali-li.github.io/Data-Visualization" />
-    <updated>2020-01-25T19:50:27-05:00</updated>
+    <updated>2020-01-26T00:44:59-05:00</updated>
     <author>
         <name>Wenjing(Cali) Li</name>
     </author>
@@ -17,7 +17,7 @@
         <link href="https://cali-li.github.io/Data-Visualization/recurrent-neural-network.html"/>
         <id>https://cali-li.github.io/Data-Visualization/recurrent-neural-network.html</id>
 
-        <updated>2020-01-25T19:39:35-05:00</updated>
+        <updated>2020-01-26T00:43:58-05:00</updated>
             <summary>
                 <![CDATA[
                     IntroductionStandard network works well usually, however, it still have some problems. Though we can include as many hidden layers as we want in the standard neural network, the input and output can only be the same length. That is not quite useful in application, since&hellip;
@@ -30,18 +30,35 @@
 <p>Though we can include as many hidden layers as we want in the standard neural network, the input and output can only be the same length. That is not quite useful in application, since you cannot translate "I like Natural Language Processing a lot!" to "我爱自然语言处理很多！", which sounds really wierd.</p>
 <p>The other problem is it doesn't share features learned across different positions of text. Like the sentence "Cali and Wenjing are good friends." If we got a sign that "Cali" is a name, we want the the network autometically considers "Wenjing" is another person's name.</p>
 <p>The basic idea of RNN is showed in the graph below.</p>
-<p>Input X is the vector of x_i, i = 1...N. y_i is effected not only by x_2, but also by y_1...y_(i-1). RNN is quite useful in machine translation, word prediction, sentiment classification and name entity recognition.</p>
-<h2 id="mcetoc_1dvfffpao1">Sentence Representation</h2>
-<h4 id="mcetoc_1dvfg89q92">Machine Translation</h4>
-<p>Ex:</p>
+<figure class="post__image post__image--center" ><img src="https://cali-li.github.io/Data-Visualization/media/posts/6/WeChat-Image_20200125202017.jpg" alt="RNN intuitive" width="1024" height="591">
+<figcaption >RNN Intuitive(many-to-many)</figcaption>
+</figure>
+<h3 id="mcetoc_1dvg5aupt4">Many-to-one Case</h3>
+<p>However, one of the advantange of RNN is it can make the output differs from the input. Many-to-one can give us a good intuition. One application of many-to-one case is the sentiment classification, when input is a sentence, that means n words(N = n), and output is a score between 1 - 5.</p>
+<p> </p>
+<h3 id="mcetoc_1dvg590fb3">One-to-many Case</h3>
+<p>One-to-many case is almost the same. It usually works in the music generation. You can input a single integer, or even a NULL.</p>
+<p> </p>
+<h3 id="mcetoc_1dvg572q50">Many-to-many Case</h3>
+<h4 id="mcetoc_1dvg57l391">Intuition</h4>
+<p>Many-to-many case can also be fancy. In the pragh below, we can actually divide the RNN into two parts. The first part is the encode part, where we input X and output nothing; the second part is the decode part, where, in contrast, we only output Y.</p>
+<p> </p>
+<h4 id="mcetoc_1dvfg89q92">Application - Machine Translation</h4>
 <p>(English)Input: x = "I like Natural Language Processing a lot!"</p>
 <p>(Chinese)Output: y = "我非常喜欢自然语言处理！"</p>
 <p>The result above is from Google Translate(<a href="https://translate.google.com/">https://translate.google.com/</a>)</p>
-<p>Notation: For the jth word in the ith sentence in the input X: x_{(i)[j]}</p>
-<h4 id="mcetoc_1dvfg8kjg3">Word Representation</h4>
+<h3 id="mcetoc_1dvg58jcq2">Conclusion</h3>
+<p>Input X is the vector of x_i, i = 1...N. y_i is effected not only by x_2, but also by y_1...y_(i-1). RNN is quite useful in machine translation, word prediction, sentiment classification and name entity recognition.</p>
+<h2 id="mcetoc_1dvfffpao1">Sentence Representation</h2>
+<h4 id="mcetoc_1dvfg89q92"> </h4>
+<h3 id="mcetoc_1dvfg8kjg3">Word Representation</h3>
 <p>The basic idea is to define a dictionary(or sometimes people call this vocabulary) first. The dictionary contains all the words you might be interested in. Usually we can choose the public corpus like STS and SSTB.</p>
-<p>And then denote position of a word in the vacabulary(called One-Hot Encoding). One-Hot Encoding is basically a index function. If the word appears in the sentence, the corresponding place in the encoding vector is 1, otherwise is 0. Since the vacabulary is relatively large, usually above 50k, we need to use sparse matrix to represent it.</p>
+<p>And then tokenize is one of the most important step. The tokenize in RNN is similar to the tokenize method in the standard network. Since the vacabulary is relatively large, usually above 50k, we need to use sparse matrix to represent it.</p>
+<p>After that, we need to train the model over some text files and start to play around!</p>
+<h3 id="mcetoc_1dvg5vlr45">Character Representation</h3>
+<p>The intuition of the character model is similar. The only difference due to the input X. In the character model, we consider single letter as an input. The advantage of this model compared with the previous one is that it can deal with unknown words more smoothly, though it is relatively expensive to compute. With the high-performance of modern computer, the character model has become more and more popular.</p>
 <p> </p>
+<p> denote position of a word in the vacabulary(called One-Hot Encoding). One-Hot Encoding is basically a index function. If the word appears in the sentence, the corresponding place in the encoding vector is 1, otherwise is 0.</p>
             ]]>
         </content>
     </entry>
