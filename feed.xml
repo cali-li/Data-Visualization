@@ -3,7 +3,7 @@
     <title>Visualization</title>
     <link href="https://cali-li.github.io/Data-Visualization/feed.xml" rel="self" />
     <link href="https://cali-li.github.io/Data-Visualization" />
-    <updated>2020-01-28T00:03:33-05:00</updated>
+    <updated>2020-01-28T00:15:35-05:00</updated>
     <author>
         <name>Wenjing(Cali) Li</name>
     </author>
@@ -17,10 +17,69 @@
         <link href="https://cali-li.github.io/Data-Visualization/recurrent-neural-network.html"/>
         <id>https://cali-li.github.io/Data-Visualization/recurrent-neural-network.html</id>
 
-        <updated>2020-01-28T00:01:23-05:00</updated>
+        <updated>2020-01-28T00:15:27-05:00</updated>
             <summary>
                 <![CDATA[
-                    IntroductionStandard network works well usually, however, it still have some problems. Though we can include as many hidden layers as we want in the standard neural network, the input and output can only be the same length. That is not quite useful in application, since&hellip;
+                    <h2 id="mcetoc_1dvffeo7p0">Introduction</h2>
+<p>Standard network works well usually, however, it still have some problems.</p>
+<p>Though we can include as many hidden layers as we want in the standard neural network, the input and output can only be the same length. That is not quite useful in application, since you cannot translate "I like Natural Language Processing a lot!" to "我爱自然语言处理很多！", which sounds really wierd.</p>
+<p>The other problem is it doesn't share features learned across different positions of text. Like the sentence "Cali and Wenjing are good friends." If we got a sign that "Cali" is a name, we want the the network autometically considers "Wenjing" is another person's name.</p>
+<p>The basic idea of RNN is showed in the graph below.</p>
+<figure class="post__image post__image--center" contenteditable="false"><img src="https://cali-li.github.io/Data-Visualization/media/posts/6/WeChat-Image_20200125202017.jpg" alt="RNN intuitive" width="1024" height="591">
+<figcaption contenteditable="true">RNN Intuitive(many-to-many)</figcaption>
+</figure>
+<h3 id="mcetoc_1dvg5aupt4">Many-to-one Case</h3>
+<p>However, one of the advantange of RNN is it can make the output differs from the input. Many-to-one can give us a good intuition. One application of many-to-one case is the sentiment classification, when input is a sentence, that means n words(N = n), and output is a score between 1 - 5.</p>
+<figure class="post__image post__image--center" contenteditable="false"><img src="https://cali-li.github.io/Data-Visualization/media/posts/6/1.jpg" alt="m-to-o" width="966" height="579">
+<figcaption contenteditable="true">RNN Intuitive(many-to-one)</figcaption>
+</figure>
+<h3 id="mcetoc_1dvg590fb3">One-to-many Case</h3>
+<p>One-to-many case is almost the same. It usually works in the music generation. You can input a single integer, or even a NULL.</p>
+<figure class="post__image post__image--center" contenteditable="false"><img src="https://cali-li.github.io/Data-Visualization/media/posts/6/2.jpg" alt="" width="893" height="512">
+<figcaption contenteditable="true">RNN Intuitive(one-to-many)</figcaption>
+</figure>
+<h3 id="mcetoc_1dvg572q50">Many-to-many Case</h3>
+<h4 id="mcetoc_1dvg57l391">Intuition</h4>
+<p>Many-to-many case can also be fancy. In the pragh below, we can actually divide the RNN into two parts. The first part is the encode part, where we input X and output nothing; the second part is the decode part, where, in contrast, we only output Y.</p>
+<figure class="post__image post__image--center" contenteditable="false"><img src="https://cali-li.github.io/Data-Visualization/media/posts/6/3.jpg" alt="" width="1230" height="514">
+<figcaption contenteditable="true">RNN Intuitive(many-to-many)</figcaption>
+</figure>
+<h4 id="mcetoc_1dvfg89q92">Application - Machine Translation</h4>
+<p>(English)Input: x = "I like Natural Language Processing a lot!"</p>
+<p>(Chinese)Output: y = "我非常喜欢自然语言处理！"</p>
+<p>The result above is from Google Translate(<a href="https://translate.google.com/">https://translate.google.com/</a>)</p>
+<h3 id="mcetoc_1dvg58jcq2">Conclusion</h3>
+<p>Input X is the vector of x_i, i = 1...N. y_i is effected not only by x_2, but also by y_1...y_(i-1). RNN is quite useful in machine translation, word prediction, sentiment classification and name entity recognition.</p>
+<hr>
+<h3 id="mcetoc_1dvfffpao1">Application: Sentence Representation</h3>
+<h4 id="mcetoc_1dvfg8kjg3">Word Representation</h4>
+<p>The basic idea is to define a dictionary(or sometimes people call this vocabulary) first. The dictionary contains all the words you might be interested in. Usually we can choose the public corpus like STS and SSTB.</p>
+<p>And then tokenize is one of the most important step. The tokenize in RNN is similar to the tokenize method in the standard network. Since the vacabulary is relatively large, usually above 50k, we need to use sparse matrix to represent it.</p>
+<p>After that, we need to train the model over some text files and start to play around!</p>
+<h4 id="mcetoc_1dvg5vlr45">Character Representation</h4>
+<p>The intuition of the character model is similar. The only difference due to the input X. In the character model, we consider single letter as an input. The advantage of this model compared with the previous one is that it can deal with unknown words more smoothly, though it is relatively expensive to compute. With the high-performance of modern computer, the character model has become more and more popular.</p>
+<hr>
+<h2 id="mcetoc_1dvkm9j350">Adjustification</h2>
+<h3 id="mcetoc_1dvkmlpu11">Vanishing Gradients</h3>
+<p>The basic idea of the computation of RNN is the same with standard network, using forward-propogation and back-propogation. RNN is mainly local influence, meaning that the value of Ym is mainly influenced by values Xi close to Ym. We always call this vanishing gradients. Vanishing gradients makes RNN a network not quite useful in long depending sentence. This is one of the RNN's drawbacks.</p>
+<h3 id="mcetoc_1dvkmm6gh2">GRU</h3>
+<figure class="post__image post__image--center" contenteditable="false"><img src="https://cali-li.github.io/Data-Visualization/media/posts/6/Untitled-drawing.png" alt="" width="960" height="720">
+<figcaption contenteditable="true">GRU Institutive</figcaption>
+</figure>
+<p>The basic thought of GRU is using update function Γ as a signal. For example, in sentence "The girl with superpower ...(omit relatively long matrial) is working". In standard RNN, since the sentence is long, the influence of "girl" to the word "has" is quite small and we can unsider it 0 if the sentence is long enough. However, in GRU model, the function Γ(u) equals to 0 until the model meet the word "girl", the function Γ(u) get a new value 1, that is called update the Γ to 1. Though the sentence is long, the value of Γ won't change until it meet another word "has".</p>
+<p> The Γ function is just like a signal, using small memory to store the information of very long dependency.</p>
+<h3 id="mcetoc_1dvl5ug470">LSTM</h3>
+<p>Similar to GRU, the main difference is LSTM has 3 gates(update gate, forget gate and output gate) while GRU has 2 gates(update gate and output gate) as shown above. LSTM is much more complicated than GRU, since it requires more computation.</p>
+<h2 id="mcetoc_1dvl76g0i1">Model in Python</h2>
+<p>This notes is based on Keras.</p>
+<pre>from keras.prepocessing.sequence import pad_sequences<br>from keras.models import Sequential<br>from keras.layers import Embedding, LSTM<br>import numpy as np<br><br>embedding_length = 5<br>max_doc = 10<br>encoded = pad_sequences(encoded_doc, truncating = "post", padding = "post", maxlen = max_doc)</pre>
+<p>Then create the model.</p>
+<pre>model = Sequential()<br>model.add(Embedding(vocab_size, embedding_size, input_length = max_doc))<br>model.add(LSTM(units=64))<br>model.compile("rmsprop", "mse")<br>model.summary()<br>output = model.predict(encoded_doc)<br>print(output)</pre>
+<hr>
+<h2 id="mcetoc_1dvl86c594">BRNN</h2>
+<p>RNN works pretty well in general cases. However, this model is not perfect. The main problem of RNN is it cannot use future information. Like when you compute the 2nd output, you cannot take inputs later than 2nd into account. In order to getting information from the future, we can use BRNN(Bidirectional RNN).</p>
+<p> Adding forward activation and backward activation together, BRNN uses past information and future information, making the model become more and more popular.</p>
+
                 ]]>
             </summary>
         <content type="html">
@@ -83,7 +142,9 @@
 <hr>
 <h2 id="mcetoc_1dvl86c594">BRNN</h2>
 <p>RNN works pretty well in general cases. However, this model is not perfect. The main problem of RNN is it cannot use future information. Like when you compute the 2nd output, you cannot take inputs later than 2nd into account. In order to getting information from the future, we can use BRNN(Bidirectional RNN).</p>
-<p> </p>
+<p> Adding forward activation and backward activation together, BRNN uses past information and future information, making the model become more and more popular.</p>
+
+<h2 id="mcetoc_1dvl8q1q90"> </h2>
             ]]>
         </content>
     </entry>
