@@ -3,7 +3,7 @@
     <title>Visualization</title>
     <link href="https://cali-li.github.io/Data-Visualization/feed.xml" rel="self" />
     <link href="https://cali-li.github.io/Data-Visualization" />
-    <updated>2020-01-28T00:15:35-05:00</updated>
+    <updated>2020-01-28T12:03:41-05:00</updated>
     <author>
         <name>Wenjing(Cali) Li</name>
     </author>
@@ -17,7 +17,7 @@
         <link href="https://cali-li.github.io/Data-Visualization/recurrent-neural-network.html"/>
         <id>https://cali-li.github.io/Data-Visualization/recurrent-neural-network.html</id>
 
-        <updated>2020-01-28T00:15:27-05:00</updated>
+        <updated>2020-01-28T12:03:33-05:00</updated>
             <summary>
                 <![CDATA[
                     <h2 id="mcetoc_1dvffeo7p0">Introduction</h2>
@@ -51,12 +51,12 @@
 <h3 id="mcetoc_1dvg58jcq2">Conclusion</h3>
 <p>Input X is the vector of x_i, i = 1...N. y_i is effected not only by x_2, but also by y_1...y_(i-1). RNN is quite useful in machine translation, word prediction, sentiment classification and name entity recognition.</p>
 <hr>
-<h3 id="mcetoc_1dvfffpao1">Application: Sentence Representation</h3>
-<h4 id="mcetoc_1dvfg8kjg3">Word Representation</h4>
+<h2 id="mcetoc_1dvfffpao1">Application: Sentence Representation</h2>
+<h3 id="mcetoc_1dvfg8kjg3">Word Representation</h3>
 <p>The basic idea is to define a dictionary(or sometimes people call this vocabulary) first. The dictionary contains all the words you might be interested in. Usually we can choose the public corpus like STS and SSTB.</p>
 <p>And then tokenize is one of the most important step. The tokenize in RNN is similar to the tokenize method in the standard network. Since the vacabulary is relatively large, usually above 50k, we need to use sparse matrix to represent it.</p>
 <p>After that, we need to train the model over some text files and start to play around!</p>
-<h4 id="mcetoc_1dvg5vlr45">Character Representation</h4>
+<h3 id="mcetoc_1dvg5vlr45">Character Representation</h3>
 <p>The intuition of the character model is similar. The only difference due to the input X. In the character model, we consider single letter as an input. The advantage of this model compared with the previous one is that it can deal with unknown words more smoothly, though it is relatively expensive to compute. With the high-performance of modern computer, the character model has become more and more popular.</p>
 <hr>
 <h2 id="mcetoc_1dvkm9j350">Adjustification</h2>
@@ -70,6 +70,7 @@
 <p> The Γ function is just like a signal, using small memory to store the information of very long dependency.</p>
 <h3 id="mcetoc_1dvl5ug470">LSTM</h3>
 <p>Similar to GRU, the main difference is LSTM has 3 gates(update gate, forget gate and output gate) while GRU has 2 gates(update gate and output gate) as shown above. LSTM is much more complicated than GRU, since it requires more computation.</p>
+<hr>
 <h2 id="mcetoc_1dvl76g0i1">Model in Python</h2>
 <p>This notes is based on Keras.</p>
 <pre>from keras.prepocessing.sequence import pad_sequences<br>from keras.models import Sequential<br>from keras.layers import Embedding, LSTM<br>import numpy as np<br><br>embedding_length = 5<br>max_doc = 10<br>encoded = pad_sequences(encoded_doc, truncating = "post", padding = "post", maxlen = max_doc)</pre>
@@ -115,12 +116,12 @@
 <h3 id="mcetoc_1dvg58jcq2">Conclusion</h3>
 <p>Input X is the vector of x_i, i = 1...N. y_i is effected not only by x_2, but also by y_1...y_(i-1). RNN is quite useful in machine translation, word prediction, sentiment classification and name entity recognition.</p>
 <hr>
-<h3 id="mcetoc_1dvfffpao1">Application: Sentence Representation</h3>
-<h4 id="mcetoc_1dvfg8kjg3">Word Representation</h4>
+<h2 id="mcetoc_1dvfffpao1">Application: Sentence Representation</h2>
+<h3 id="mcetoc_1dvfg8kjg3">Word Representation</h3>
 <p>The basic idea is to define a dictionary(or sometimes people call this vocabulary) first. The dictionary contains all the words you might be interested in. Usually we can choose the public corpus like STS and SSTB.</p>
 <p>And then tokenize is one of the most important step. The tokenize in RNN is similar to the tokenize method in the standard network. Since the vacabulary is relatively large, usually above 50k, we need to use sparse matrix to represent it.</p>
 <p>After that, we need to train the model over some text files and start to play around!</p>
-<h4 id="mcetoc_1dvg5vlr45">Character Representation</h4>
+<h3 id="mcetoc_1dvg5vlr45">Character Representation</h3>
 <p>The intuition of the character model is similar. The only difference due to the input X. In the character model, we consider single letter as an input. The advantage of this model compared with the previous one is that it can deal with unknown words more smoothly, though it is relatively expensive to compute. With the high-performance of modern computer, the character model has become more and more popular.</p>
 <hr>
 <h2 id="mcetoc_1dvkm9j350">Adjustification</h2>
@@ -134,6 +135,7 @@
 <p> The Γ function is just like a signal, using small memory to store the information of very long dependency.</p>
 <h3 id="mcetoc_1dvl5ug470">LSTM</h3>
 <p>Similar to GRU, the main difference is LSTM has 3 gates(update gate, forget gate and output gate) while GRU has 2 gates(update gate and output gate) as shown above. LSTM is much more complicated than GRU, since it requires more computation.</p>
+<hr>
 <h2 id="mcetoc_1dvl76g0i1">Model in Python</h2>
 <p>This notes is based on Keras.</p>
 <pre>from keras.prepocessing.sequence import pad_sequences<br>from keras.models import Sequential<br>from keras.layers import Embedding, LSTM<br>import numpy as np<br><br>embedding_length = 5<br>max_doc = 10<br>encoded = pad_sequences(encoded_doc, truncating = "post", padding = "post", maxlen = max_doc)</pre>
@@ -144,7 +146,9 @@
 <p>RNN works pretty well in general cases. However, this model is not perfect. The main problem of RNN is it cannot use future information. Like when you compute the 2nd output, you cannot take inputs later than 2nd into account. In order to getting information from the future, we can use BRNN(Bidirectional RNN).</p>
 <p> Adding forward activation and backward activation together, BRNN uses past information and future information, making the model become more and more popular.</p>
 
-<h2 id="mcetoc_1dvl8q1q90"> </h2>
+<p> </p>
+<p id="mcetoc_1dvl8q1q90">This is notes from NLP class.</p>
+<p>Find more RNN papers afterwards.</p>
             ]]>
         </content>
     </entry>
