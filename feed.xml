@@ -3,7 +3,7 @@
     <title>Visualization</title>
     <link href="https://cali-li.github.io/Data-Visualization/feed.xml" rel="self" />
     <link href="https://cali-li.github.io/Data-Visualization" />
-    <updated>2020-01-28T12:03:41-05:00</updated>
+    <updated>2020-01-31T16:43:13-05:00</updated>
     <author>
         <name>Wenjing(Cali) Li</name>
     </author>
@@ -2792,15 +2792,16 @@ $(document).ready(function ()  {
         <link href="https://cali-li.github.io/Data-Visualization/banana-project-2.html"/>
         <id>https://cali-li.github.io/Data-Visualization/banana-project-2.html</id>
 
-        <updated>2019-12-07T23:47:22-05:00</updated>
+        <updated>2020-01-31T16:43:05-05:00</updated>
             <summary>
                 <![CDATA[
-                    Introduction
+                    file:///C:/Users/wenji/Downloads/viz_sum%20up/Project2_banana-project.html Introduction
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                Introduction
+                <p><a href="file:///C:/Users/wenji/Downloads/viz_sum%20up/Project2_banana-project.html">file:///C:/Users/wenji/Downloads/viz_sum%20up/Project2_banana-project.html</a></p>
+<p>Introduction</p>
             ]]>
         </content>
     </entry>
